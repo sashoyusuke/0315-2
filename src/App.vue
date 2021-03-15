@@ -7,7 +7,7 @@
 </template>
 
 <script>
-
+import axios from "axios";
 export default{
 data(){
   return{
@@ -15,6 +15,11 @@ data(){
   };
 },
 methods:{
-
+getaddress(){
+  const res = await axios.get("https://apis.postcode-jp.com/api/v4/9cd5bef5b6fc8bf220049e41dcbd4290/param1/param2?cursor3=value1?cursor4=value2");
+const allAddress= res.data;
+this.address=allAddress;
 }
 }
+};
+</script>
