@@ -11,14 +11,15 @@ import axios from "axios";
 export default{
 data(){
   return{
-    text:""
+    text:"",
+    address:""
   };
 },
 methods:{
-getaddress(){
-  const res = await axios.get("https://apis.postcode-jp.com/api/v4/9cd5bef5b6fc8bf220049e41dcbd4290/param1/param2?cursor3=value1?cursor4=value2");
-const allAddress= res.data;
-this.address=allAddress;
+async getaddress(){
+  const res = await axios.get('https://apis.postcode-jp.com/api/v4/postcodes/${this.test}?apiKey=bPRFvyBgjHxi0hvGJuY7O676Y9cNPnEVs8ejjmj');
+  const allAddress=res.data;
+  this.address=allAddress.address; 
 }
 }
 };
